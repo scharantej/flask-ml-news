@@ -1,0 +1,17 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shared Articles</title>
+</head>
+<body>
+<h1>Shared Articles</h1>
+<ul>
+{% for article in shared_articles %}
+<li><a href="{{ url_for('article', article_id=loop.index) }}">{{ article.title }}</a></li>
+{% endfor %}
+</ul>
+</body>
+</html>
+
