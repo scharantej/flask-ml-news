@@ -15,28 +15,28 @@ articles = [
     },
     {
         "title": "The Future of Machine Learning",
-        "url": "https://www.forbes.com/sites/forbestechcouncil/2022/01/18/the-future-of-machine-learning/?sh=6606007a1e28",
+        "url": "https://www.forbes.com/sites/forbestechcouncil/2022/01/18/the-future-of-machine-learning/?sh=1a5a105f1e28",
     },
 ]
 
-# Route for the main page of the application
+# Route for the main page
 @app.route("/")
 def index():
     return render_template("index.html", articles=articles)
 
-# Route for a page that displays the full text of a single article
+# Route for the page that displays the full text of a single article
 @app.route("/article/<int:article_id>")
 def article(article_id):
     article = articles[article_id]
     return render_template("article.html", article=article)
 
-# Route for a page that displays a list of the user's saved articles
+# Route for the page that displays a list of the user's saved articles
 @app.route("/saved")
 def saved():
     saved_articles = [article for article in articles if article in user.saved_articles]
     return render_template("saved.html", saved_articles=saved_articles)
 
-# Route for a page that displays a list of the articles that the user has shared with other users
+# Route for the page that displays a list of the articles that the user has shared with others
 @app.route("/shared")
 def shared():
     shared_articles = [article for article in articles if article in user.shared_articles]
